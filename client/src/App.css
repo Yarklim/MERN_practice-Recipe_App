@@ -121,7 +121,7 @@ p {
 }
 
 button {
-	color: inherit;
+	font-size: inherit;
 
 	cursor: pointer;
 }
