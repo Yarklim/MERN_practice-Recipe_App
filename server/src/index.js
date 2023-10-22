@@ -3,7 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
-import { userRouter } from './routes/users.js';
+import { userRouter } from './routes/user.js';
 import { recipesRouter } from './routes/recipes.js';
 
 dotenv.config();
@@ -19,7 +19,11 @@ app.use('/auth', userRouter);
 app.use('/recipes', recipesRouter);
 
 mongoose.connect(
-  `mongodb+srv://yarklim:${MONGO__PASSWORD}@recipes.amcnjc4.mongodb.net/recipes?retryWrites=true&w=majority`
+  `mongodb+srv://yarklim:${MONGO__PASSWORD}@recipes.amcnjc4.mongodb.net/recipes?retryWrites=true&w=majority`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
 );
 
 app.listen(3001, () => console.log('Server running'));
